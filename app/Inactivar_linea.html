@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	
+	<link type="image/png" href="../../geoportal/gis/resources/favicon123.ico" rel="icon">
+	<link type="image/png" href="../../geoportal/gis/resources/favicon123.ico" rel="shortcut icon">
+
+    <title>123 - Cundinamarca</title>
+    <link rel="stylesheet" href="../assets/fancyapp/source/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+    
+    
+    
+      <!-- Page-Level Plugin CSS - Tables -->
+    <link href="../assets/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/cupertino/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+    <link href="../assets/css/crear.css" rel="stylesheet">
+    <link href="../assets/selects/css/bootstrap-select.min.css" rel="stylesheet">
+
+    
+    <!--link rel="stylesheet" href="../assets/carousel/dist/css/bootstrap-modal-carousel.min.css" -->
+	<link rel="stylesheet" href="../css/leaflet.awesome-markers.css" />
+	<link rel="stylesheet" href="../css/animate.css" />
+	
+	<link rel="stylesheet" href="../css/MainNav.css" />
+    
+    <script src="../js/socket.io.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap-growl.min.js"></script>
+    <script type="text/javascript" src="../assets/fancyapp/source/jquery.fancybox.js"></script>
+    
+	<script type="text/javascript" language="javascript" src="../assets/dataTables/jquery.dataTables.js"></script>
+	<script type="text/javascript" language="javascript" src="../assets/dataTables/dataTables.bootstrap.js"></script>
+	<script type="text/javascript" src="../assets/selects/js/bootstrap-select.min.js"></script>
+	<script type="text/javascript" src="../js/Notificaciones.js"></script>
+	
+  </head>
+  <body>
+    
+     <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <div class="container-fluid">
+          
+          <div class="navbar-header">
+         	 <a class="navbar-brand" href="#" style="width: 200px;">
+            	<img src="../img/logos_gobernacion.png" style="max-width: 405px;" alt="logo Skaphe">
+			</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+             <li  id="barranaveacion">
+              	
+              </li>
+              <li>
+	              	<p style="padding: 10px 2px;"></p>
+	          </li>
+              <li class="dropdown active>">
+            	    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-users fa-fw"></i>  <i class="fa fa-caret-down"> </i> 
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts" id="MenuAdminUser">
+                                       
+                    </ul>
+                </li>
+                 <li>
+		              	<p style="padding: 10px 2px;"></p>
+		         </li>
+                 <li class="dropdown">
+	                	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+	                    </a>
+	                	<ul class="dropdown-menu dropdown-user">
+	                        <li id="perfil"><a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a>
+	                        </li>
+	                        <li id="changePass"><a href="#"><i class="fa fa-gear fa-fw"></i> Cambiar Contraseña</a>
+	                        </li>
+	                        <li class="divider"></li>
+	                        <li id="cerrar_session"><a href="../../SIG/login/index_nuse.html"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a>
+	                        </li>
+	                   </ul> 
+	              </li>
+	              <li>
+	              	<a href="#">
+	              	</a>
+	              </li>
+            </ul>
+           </div>
+            
+          </nav>
+    
+  	 	<div class="col-lg-12">
+  	 		<hr class="colorgraph">
+			<hr class="colorgraph">
+			<hr class="colorgraph">
+			<a href="./Usuarios.html"><button type="button" id="regresar" class="btn btn-default btn-md	 pull-right">
+			  <span class="glyphicon glyphicon-arrow-left"></span> Regresar
+			</button></a>
+		</div>
+	
+  	            <div>
+                	<div class="col-lg-12">
+						
+					</div>
+    				<div class="row">
+					    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+							<form action="<?php echo $editFormAction; ?>" method="POST" name="Crear" id="Crear" onSubmit="return valida();">
+					      		<div class="form-group">
+					      			<input name="idusuario" type="hidden" id="idusuario" class="form-control" value="" placeholder="Id">
+					      		</div>
+					      		<div class="form-group">
+					            	<label>Cedula:</label>
+					          		<input name="cedula" type="text" id="cedula" class="form-control input-sm" value=""  placeholder="Cedula">
+					          </div>	
+					          	<div class="form-group">
+									<label>Nombre:</label>
+						          	<input name="nombre" type="text" id="nombre" class="form-control input-sm" value="" placeholder="Nombre">
+								</div>
+							  <div class="form-group">
+									<label>Apellido:</label>
+						          	<input name="apellido" type="text" id="apellido" class="form-control input-sm" value="" placeholder="Apellido">
+								</div>
+								<div class="form-group">
+									<label>Direccion:</label>
+						          	<input name="direccion" type="text" id="direccion" class="form-control input-sm" value="" placeholder="Direccion">
+								</div>
+								<div class="form-group">
+									<label>Numero Telefono:</label>
+						          	<input name="numero_telefono" type="text" id="numero_telefono" class="form-control input-sm" value="" placeholder="Numero Telefono" disabled>
+								</div>
+								<div class="form-group">
+									<label>Correo:</label>
+						          	<input name="correo" type="text" id="correo" class="form-control input-sm" value="" placeholder="Correo">
+								</div>
+								<div class="form-group">
+									<label>Tipo Usuario (Coberturas):</label>
+									<select class="form-control" id="select_tipo_usuario" required>
+									  <option value="0" disabled >Tipo de usuario </option>
+									</select>
+								</div>	
+								<div class="form-group">
+									<label>Municipio:</label>
+									<select class="form-control" id="select_municipio" required>
+									  <option value="0" disabled >Municipio </option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Estado:</label>	
+									<div class="btn-group">
+									  <button type="button" id="activar" class="btn btn-default">Activo</button>
+									  <button type="button" id="desactivar" class="btn btn-default">Desactivar</button>
+									</div>
+								</div>			
+							<div class="row">
+								<input type="button" value="Registrar" id="btn_edicion_usuario" class="btn btn-primary btn-block btn-ms" tabindex="7">
+							</div>
+					
+					        <input type="hidden" name="MM_update" value="0">
+					        <input type="hidden" name="proc" value="0">
+					        <input type="hidden" name="elimina_proy" value="0">
+					    </form>
+
+    
+        		</div><!-- /.panel-body -->
+    
+  </body>
+</html>
+<script type="text/javascript" src="../js/edicion_usuario.js"></script>
+<script type="text/javascript" src="../js/Navegacion.js"></script>

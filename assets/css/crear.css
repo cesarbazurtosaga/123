@@ -1,0 +1,8 @@
+
+.colorgraph {
+height: 5px;
+border-top: 0;
+background: #3AC;
+border-radius: 5px;
+background-image: linear-gradient(to right, #3AC, #3AC 12.5%, #3AC 12.5%, #3AC 25%, #FDF100 25%, #FDF100 37.5%, #FDF100 50%, #FDF100 50%, #FDF100 62.5%, #FDF100 62.5%, #FDF100 75%, #ED1B24 75%, #ED1B24 87.5%, #ED1B24 87.5%, #ED1B24);
+}

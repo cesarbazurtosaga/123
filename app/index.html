@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+	
+	<link type="image/png" href="../../geoportal/gis/resources/favicon123.ico" rel="icon">
+	<link type="image/png" href="../../geoportal/gis/resources/favicon123.ico" rel="shortcut icon">
+
+    <title>123 - Cundinamarca</title>
+    <link rel="stylesheet" href="../assets/ol/css/ol.css" />
+    
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/font-awesome-4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../assets/jquery-ui-1.11.4/jquery-ui.min.css">
+  	<link rel="stylesheet" href="../assets/leaflet/leaflet.css" />
+  	<link rel="stylesheet" href="../assets/datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <!--link rel="stylesheet" href="../assets/carousel/dist/css/bootstrap-modal-carousel.min.css" -->
+	<link rel="stylesheet" href="../assets/fancyapp/source/jquery.fancybox.css" />
+	
+	<link rel="stylesheet" href="../css/animate.css" />
+	<link rel="stylesheet" href="../css/Main.css" />
+	<link rel="stylesheet" href="../assets/BootstrapDialog/css/bootstrap-dialog.min.css" />
+	<link rel="stylesheet" href="../css/MainNav.css" />
+	
+    <script src="../assets/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    
+	<script src="../assets/ol/resources/example-behaviour.js" type="text/javascript"></script>
+	<script src="../assets/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../assets/ol/closure-library/closure/goog/base.js"></script>
+	<script type="text/javascript" src="../assets/js/ol.js"></script>
+    <script type="text/javascript" src="../js/socket.io.js"></script>
+    
+  	<script src="../assets/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap-growl.min.js"></script>
+    
+    <script type="text/javascript" src="../assets/fancyapp/source/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="../assets/moment/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="../assets/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+  	<script type="text/javascript" src="../assets/BootstrapDialog/js/bootstrap-dialog.min.js" ></script>
+  	<script type="text/javascript" src="../assets/turf/turf.min.js" ></script>
+  
+    <script src="../assets/d3/d3.v3.min.js" type="text/javascript"></script>
+    <script src="../assets/leaflet/leaflet.js" type="text/javascript"></script>
+
+    <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
+  </head>
+  <body>
+  	
+  <div class="container">
+      <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" style="width: 200px;">
+            	<img src="../img/logos_gobernacion.png" style="max-width: 405px;" alt="logo Skaphe">
+			</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         
+			        
+		    <ul class="nav navbar-nav navbar-right">
+		    	   <li class="dropdown" style="min-width: 250px">
+		    	   		
+				      <form class="navbar-form"  >
+				        <div class="input-group">
+				            <input type="text" id="Busqueda_general" class="form-control" placeholder="Buscar" name="q">
+				            <div class="input-group-btn" disabled="true">
+				                <button class="btn btn-default" disabled ><i class="glyphicon glyphicon-search"></i></button>
+				            </div>
+						</div>
+				      </form>
+				        
+				        
+		    	   </li>
+             <li class="active" id="barranaveacion">
+              	
+              </li>
+              <li>
+	              	<p style="padding: 10px 2px;"></p>
+	          </li>
+                  <li class="dropdown active>">
+            	  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-users fa-fw"></i>  <i class="fa fa-caret-down"> </i> 
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts" id="MenuAdminUser">
+             			        
+                    </ul>
+                </li>
+                 <li>
+		              	<p style="padding: 10px 2px;"></p>
+		         </li>
+                 <li class="dropdown">
+	                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+	                    </a>
+	                	<ul class="dropdown-menu dropdown-user">
+	                        <li id="perfil"><a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a>
+	                        </li>
+	                        <li id="changePass"><a href="#"><i class="fa fa-gear fa-fw"></i> Cambiar Contraseña</a>
+	                        </li>
+	                        <li class="divider"></li>
+	                        <li id="cerrar_session"><a href="../login/index_nuse.html"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a>
+	                        </li>
+	                    </ul>
+	              </li>
+	              <li>
+	              	<a href="#">
+	              	</a>
+	              </li>
+            </ul>
+            </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+        
+      </nav>
+      </div>
+      <audio id="sirena" src="../audio/Sirena.mp3" >
+		</audio>
+		
+	<div class="container " >	
+	  <div id="map" >
+      	<div id="gmap" class="fill" ></div>
+    	<div id="olmap" class="fill" ></div>  
+      </div>	
+      <div id="pano" style="position:absolute; left:50%; top: 50px; width: 0%; height: 100%">
+      	<div class="vertical-center center">
+      	    <div class="container ">
+				<div class="row">
+			    	    <div style=" width:400px ">
+			        	    <div class="form-wrap">
+							<div class="offer offer-warning">
+							<div class="shape">
+								<div class="shape-text">
+									 Calles						
+								</div>
+							</div>
+							<div class="offer-content">
+							      <ul class="chat">
+				                        <li class="left clearfix"><span class="chat-img pull-left">
+				                            <img src="../img/VistaCalles.png" alt="User Avatar" width="140" />
+				                        	</span>
+				                            <div >
+				                            	<div class=" center">
+	      	    									<div class="container ">
+												  		<button class="btn btn-default orange-circle-button " >Por favor!!<br />pique en el mapa<br />sobre la Vía en la<br />que desee ver la<br />vista de calles</button>
+													</div>
+												</div>	  	
+											</div>
+				                        </li>
+				                     </ul>
+				                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+      </div>
+      
+      <div id="panel_ruta" >
+      	<div id="mapruta"  class="fill" >
+      	</div>
+      </div>
+     </div>
+     
+     <div class="panel panel-default StgetDateRoute navbar-offset ">
+	  <div class="panel-body">
+	  	<h4 id="routediaanio"> viernes, enero 2 2014</h4>
+	    <h1 > <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <b id="routehour">5:50 pm</b></h1>
+	  </div>
+	</div>
+      <div class=" col-sm-2  panel panel-primary StDateRoute navbar-offset " id="DateRoute" >
+      	
+		  <div class="panel-heading ">
+		    <h3 class="panel-title">Opciones de Ruta</h3>
+		  </div>
+		  <div class="panel-body">
+		  	
+			       <div class='col-sm-12'>
+			             	<label for="datetimepicker_ruta_ini">Fecha Inicio</label>
+			                <div class="input-group date" id="datetimepicker_ruta_ini">
+						        <input type="text" class="form-control"  />
+			                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+			                    </span>
+						    </div>
+			        </div>
+			        <div class='col-sm-12'>
+			            	<label for="datetimepicker_ruta_fin">Fecha Fin</label>
+			                <div class="input-group date" id="datetimepicker_ruta_fin">
+						        <input type="text" class="form-control"  />
+			                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+			                    </span>
+						    </div>
+			     	</div>
+			     	<div class='col-sm-12'>
+			        <hr>
+			        <div class="btn-group btn-group-sm pull-right">
+						<button type="button" class="btn btn-default "   onclick="close_panel_rutas();"><span class="fa fa-times"></span> Cerrar </button>
+					</div>
+			        <div class="btn-group btn-group-sm pull-left">
+						<button type="button" class="btn btn-success "  onclick="ejecutar_panel_rutas();"><span class="fa fa-road"></span> Ver Ruta </button>
+					</div>
+					</div>
+			    </div>
+			
+	  </div>
+		
+      <div id="info"></div>
+      <div id="popup"></div>
+      
+      <div class="navbar-offset"></div>
+     
+      <div class="row main-row" id="panel_de_casos">
+        <div class="col-sm-5 col-md-3 sidebar sidebar-left pull-left" style=" min-width: 350px;">
+          <div class="panel-group sidebar-body" id="accordion-left">
+            <div class="panel panel-primary">
+            	<div class="panel-heading clearfix">
+			      <h4 class="panel-title pull-left" >
+				  		<a data-toggle="collapse" href="#casos_panel">
+		                    <i class="fa fa-list-alt"></i>
+		                    Casos
+		                </a>
+				      </h4>
+				  <span class="pull-right slide-submenu">
+                    <i class="fa fa-chevron-left"></i>
+                  </span>
+                </h4>
+              </div>
+              
+              <div id="casos_panel" class="panel-collapse collapse in">
+                <div class="panel-body" style="max-height: 270px;overflow: auto;" id="list_casos" >
+                    <ul class="chat list-group" >
+                    </ul>
+                </div>
+            
+                  <div class="row form-group"  style="max-width: 90%;margin-left: 10px;" id="PaneSelectUsr">
+                  		<br>
+                  		    <label for="intUsrSecad">Usuario SECAD:</label>
+					        <div class="input-group">
+					        	<input type="text" class="form-control" id="intUsrSecad">
+					            <span class="input-group-addon success" id="firtroUsrSECAD"><span class="glyphicon glyphicon-filter"></span></span>
+					    </div>
+					    <div id="PanelUsrSECAD">
+					    	<br>
+						    Fitrado por el usuario:
+						    <div class="pull-right">
+						    	<button type="button" class="btn btn-danger btn-xs" id="CleanFiltroSECAD"><span class="glyphicon glyphicon-remove"></span></button>
+						    </div> <br>
+						    <p class="text-success" id="pUsrSECAD"></p>
+					    </div>
+				  </div>
+				  
+              </div>
+                <div class="panel-footer" style="min-height:50px">
+                	
+			        <div class="btn-group btn-group-sm pull-right">
+						<button type="button" class="btn btn-primary"  onclick="displayZoomClick_extend()"><span class="fa fa-arrows-alt"></span> Extensión </button>
+						<button type="button" class="btn btn-primary"  id="id_vista_calles"><span class="fa fa-male orangeiconcolor"></span> Calles </button>
+						
+					</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mini-submenu mini-submenu-left pull-left">
+        <i class="fa fa-list-alt"></i>
+      </div>
+      <div class="mini-submenu mini-submenu-right pull-right">
+        <i class="fa fa-tasks"></i>
+      </div>
+      
+     <button type="button" class="btn btn-primary" id="mostrar_layers">Grupos</button>
+     <div class="col-sm-5 col-md-3"  id="panel_admin" >
+     	<div class="panel " id="panel_admin_contenido">
+     <div class="panel-group" id="accordion">
+     <div class="panel panel-primary" >
+     	
+      	  <div class="panel-heading">
+		    <h3 class="panel-title">
+		    	<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">+ Grupos</a>
+		    	 <span class="pull-right slide-submenu">
+                    <i class="fa fa-chevron-right" id="Ocultar_layers"></i>
+                  </span>
+		    	</h3>
+		  </div>
+		  <div id="collapse1" class="panel-collapse collapse in">
+		  <div class="panel-body">
+		    <div  style="max-height: 400px;overflow: auto;">
+        		<ul id="check-list-box" class="list-group checked-list-box">
+                
+                                   
+               </ul>
+            </div>
+		  </div>
+		</div>
+		</div>
+		<div class="panel panel-primary">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">+ Leyenda</a>
+		      </h4>
+		    </div>
+		    <div id="collapse2" class="panel-collapse collapse">
+     		 <div class="panel-body" > 
+		    	<div class="well" style="max-height: 500px;overflow: auto;"> 
+					<div id="items" class="divider" >	
+						<i><img src="../img/Educacion.png" width="24px" height="26px"></i> Institución Educativa<br>
+						<i><img src="../img/Centro_Salud.png" width="24px" height="26px"></i> Centro De Salud<br>
+						<i><img src="../img/Estaciones_Policia.png" width="24px" height="26px"></i> Estación De Policía<br>
+						<i><img src="../img/limite_veredal.PNG" width="24px" height="26px"></i> Vereda<br>
+						<i><img src="../img/limite_municipal.PNG" width="24px" height="26px"></i> Municipio<br>
+						<i><img src="../img/limite_provincial.PNG" width="24px" height="26px"></i> Provincia<br>
+						
+					</div>
+				</div>
+		    	
+			</div>
+		    </div>
+		</div>
+	   
+		</div>
+		</div>
+		</div>
+	<div id="carousel-panel-fotos"  class="col-sm-3 col-md-2">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Fotos Caso</h3>
+		  </div>
+		  <div class="panel-body" id="FotosCaso">
+		    
+		  </div>
+		</div>
+		
+  	</div>
+	<div id="carousel-panel-generic"  class="col-sm-3 col-md-3">
+  
+    <div id="myCarousel" class="carousel slide">
+     
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        
+    </ol>
+     
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        
+    <div class="item active">
+        <div class="row-fluid">
+          <div class="col-sm-6 col-md-6" id="base_osm_calles">
+          	<a href="#" class="thumbnail"><img src="../img/osm_calles.png"  style="max-width:100%;"></a>
+          	<div class="carousel-caption"><center><h6>OSM</h6></center></div>
+          </div>
+         <div class="col-sm-6 col-md-6" id="base_google_maps_roads">
+         	<a href="#" class="thumbnail">
+         		<img src="../img/google_maps.PNG" style="max-width:100%;" >
+         	</a>
+         	<div class="carousel-caption"><center><h6>Google Mapas</h6></center></div>
+         </div>
+        </div><!--/row-fluid-->
+    </div><!--/item-->
+     
+    <div class="item">
+        <div class="row-fluid">
+           <div class="col-sm-6 col-md-6"  id="base_google_maps_satellite">
+           	<a href="#" class="thumbnail">
+           		<img src="../img/satelite.png"   style="max-width:100%;" border="2">
+           	</a>
+           	<div class="carousel-caption"><center><h6 style="color:rgba(255, 255, 255,1)">Google Satelite</h6></center></div>
+           </div>
+           <div class="col-sm-6 col-md-6" id="base_SAGA">
+           	<a href="#" class="thumbnail"><img src="../img/saga.PNG"   style="max-width:100%;" border="2"></a>
+           	<div class="carousel-caption"><center><h6>SAGA</h6></center></div>
+           </div>
+            
+        </div><!--/row-fluid-->
+    </div><!--/item-->
+   
+     
+    </div><!--/carousel-inner-->
+  
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+    </div><!--/myCarousel-->
+     
+</div>
+      <div class="col-sm-4 col-md-3"  id="panel_formulario" >
+      <div class="panel panel-primary" >
+      	  <div class="panel-heading">
+		    <h3 class="panel-title">Formulario Del Caso</h3>
+		  </div>
+		  <div class="panel-body">
+		    	    <div>
+						<form>
+							<div class="form-group">
+								<textarea class="form-control" rows="2" placeholder="Descripcion Del Caso" id="descripcion_bitacora" required></textarea>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="select_tipo" required>
+								  <option value="0" disabled selected>Tipo Caso</option>
+								</select>
+							</div>	
+							<div class="form-group">
+								<select class="form-control" id="select_nueve" required>
+								  <option value="0" disabled selected>Clasificacion Nueve</option>
+								</select>
+							</div>	
+							
+							<div class="form-group">
+									<button type="button" class="btn btn-warning btn-block btn-sm" id="asignacion_recurso">Asignar Policia</button>
+							</div>
+						</form>
+					</div>
+			</div>
+		  <div class="panel-footer">
+		  		<div class="row">
+					  <button type="button" class="btn btn-success btn-block btn-sm" id="agregar_bitacora">Aceptar</button>
+				</div>
+		  </div>
+		</div>
+		</div>
+		
+    </div>
+    
+    <div class="panel panel-primary"id="leyenda_Casos" >
+	  <div class="panel-heading">Llamadas <span class="pull-right slide-submenu">
+                    <i class="fa fa-chevron-right" id="Ocultar_panel_llamadas"></i>
+                  </span></div>
+	  <div class="panel-body">
+	    <div id="items" class="divider" >	
+			<i><img src="../img/icons/SECAD_SE.png" width="34px" height="36px"></i> Sin Enviar.<br>
+			<i><img src="../img/icons/SECAD_PD.png" width="34px" height="36px"></i> Por Despacho.<br>
+			<i><img src="../img/icons/SECAD_ED.png" width="34px" height="36px"></i> En Despacho.<br>
+			<i><img src="../img/icons/SECAD_CR.png" width="34px" height="36px"></i> Cerrado (<60).<br>
+		</div>
+	  </div>
+	</div>
+     
+    
+    <script type="text/javascript" src="../js/var_global.js"></script>
+    <script type="text/javascript" src="../js/f.js"></script>
+    <script type="text/javascript" src="../js/MapRuta.js"></script>
+    <script type="text/javascript" src="../js/items.js"></script>
+    <script type="text/javascript" src="../js/Leyenda.js"></script>
+    <script type="text/javascript" src="../js/Notificaciones.js"></script>
+    <script type="text/javascript" src="../js/Funciones.js"></script>
+    <script type="text/javascript" src="../js/Navegacion.js"></script>
+    <script type="text/javascript" src="../js/LEquipamentos.js"></script>    
+    <script type="text/javascript" src="../js/LUbicacion.js"></script>
+    <script type="text/javascript" src="../js/LBomberos.js"></script>
+    <script type="text/javascript" src="../js/LDCIVIL.js"></script>
+    <script type="text/javascript" src="../js/Lgeoms.js"></script>
+    <script type="text/javascript" src="../js/LCRUE.js"></script>
+    <script type="text/javascript" src="../js/LUAEPRAE.js"></script>
+    <script type="text/javascript" src="../js/LEjercito.js"></script>
+    <script type="text/javascript" src="../js/LOtros.js"></script>
+    <script type="text/javascript" src="../js/LCasos.js"></script>
+    <script type="text/javascript" src="../js/Lyr_wms.js"></script>
+    <script type="text/javascript" src="../js/rutad3.js"></script>
+	<script type="text/javascript" src="../js/DisplayFeature.js"></script>
+	<script type="text/javascript" src="../js/MainMap.js"></script>
+	<script type="text/javascript" src="../js/MainJquery.js"></script>	
+  </body>
+</html>

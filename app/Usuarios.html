@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link type="image/png" href="../../geoportal/gis/resources/favicon123.ico" rel="icon">
+	<link type="image/png" href="../../geoportal/gis/resources/favicon123.ico" rel="shortcut icon">
+
+    <title>123 - Cundinamarca</title>
+    <link rel="stylesheet" href="../assets/fancyapp/source/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+    
+    
+    
+      <!-- Page-Level Plugin CSS - Tables -->
+    <link href="../assets/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/cupertino/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+    <link href="../assets/css/crear.css" rel="stylesheet">
+    <link href="../assets/selects/css/bootstrap-select.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../assets/BootstrapDialog/css/bootstrap-dialog.min.css" />
+
+    
+    <!--link rel="stylesheet" href="../assets/carousel/dist/css/bootstrap-modal-carousel.min.css" -->
+	<link rel="stylesheet" href="../css/animate.css" />
+	<link rel="stylesheet" href="../css/MainNav.css" />
+    
+    <script src="../js/socket.io.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap-growl.min.js"></script>
+    <script type="text/javascript" src="../assets/fancyapp/source/jquery.fancybox.js"></script>
+    
+    
+	<script type="text/javascript" language="javascript" src="../assets/dataTables/jquery.dataTables.js"></script>
+	<script type="text/javascript" language="javascript" src="../assets/dataTables/dataTables.bootstrap.js"></script>
+	<script type="text/javascript" src="../assets/selects/js/bootstrap-select.min.js"></script>
+	<script type="text/javascript" src="../js/Notificaciones.js"></script>
+	<script type="text/javascript" src="../assets/BootstrapDialog/js/bootstrap-dialog.min.js" ></script>
+	
+  </head>
+  <body>
+    
+      <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <div class="container-fluid">
+          
+          <div class="navbar-header">
+         	 <a class="navbar-brand" href="#" style="width: 200px;">
+            	<img src="../img/logos_gobernacion.png" style="max-width: 405px;" alt="logo Skaphe">
+			</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+             <li  id="barranaveacion">
+              	
+              </li>
+              <li>
+	              	<p style="padding: 10px 2px;"></p>
+	          </li>
+              <li class="dropdown active>">
+            	    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-users fa-fw"></i>  <i class="fa fa-caret-down"> </i> 
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts" id="MenuAdminUser">
+                                       
+                    </ul>
+                </li>
+                 <li>
+		              	<p style="padding: 10px 2px;"></p>
+		         </li>
+                 <li class="dropdown">
+	                	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+	                    </a>
+	                	<ul class="dropdown-menu dropdown-user">
+	                        <li id="perfil"><a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a>
+	                        </li>
+	                        <li id="changePass"><a href="#"><i class="fa fa-gear fa-fw"></i> Cambiar Contraseña</a>
+	                        </li>
+	                        <li class="divider"></li>
+	                        <li id="cerrar_session"><a href="../../SIG/login/index_nuse.html"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a>
+	                        </li>
+	                   </ul> 
+	              </li>
+	              <li>
+	              	<a href="#">
+	              	</a>
+	              </li>
+            </ul>
+           </div>
+            
+          </nav>
+
+  	<hr class="colorgraph">
+  	
+  	<div class="col-lg-12">
+		<hr class="colorgraph">
+	</div>
+	
+        <div class="col-lg-12">
+        	<div class="panel panel-default">
+                <div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="tabla_registro">
+                             <thead>		
+								    <tr>
+									      <th align="center">Fecha</th>
+									      <th align="center">Cedula</th>
+									      <th align="center">Nombre</th>
+									      <th align="center">Apellido</th>
+									      <th align="center">Direccion</th>
+									      <th align="center">Correo</th>
+									      <th align="center">Tipo Usuario</th>
+									      <th align="center">Telefono</th>
+									      <th align="center">Municipio</th>
+									      <th align="center">Estado</th>
+									      <th align="center">Llamar</th>									      
+									      <th align="center">Editar</th>
+								    </tr>
+						    </thead>
+							<tbody>
+								
+						   	</tbody>
+       							
+                        </table>
+            		</div>
+        		</div><!-- /.panel-body -->
+    		</div><!-- /.panel -->
+		</div><!-- /.col-lg-12 -->
+    
+	
+  </body>
+</html>
+<script type="text/javascript" src="../js/Funciones.js"></script>
+<script type="text/javascript" src="../js/usuarios.js"></script>
+<script type="text/javascript" src="../js/Navegacion.js"></script>

@@ -1,0 +1,106 @@
+
+.navbar-offset { margin-top: 50px; }
+       html, body {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      .navbar-brand {
+			float: left;
+			height: 50px;
+			padding: 1px 4px;
+			font-size: 18px;
+			line-height: 0px;
+		}
+		.navbar-top-links li a {
+			padding: 15px;
+		}
+.navbar-default {
+			background-color: #428bca;
+			border-color: #000000;
+		}
+		.navbar-default .navbar-brand {
+			color: #ffffff;
+		}
+		.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+			color: #ffffff;
+		}
+		.navbar-default .navbar-text {
+			color: #ffffff;
+		}
+		.navbar-default .navbar-nav > li > a {
+			color: #ffffff;
+		}
+		.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+			color: #ffffff;
+		}
+		.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+			color: #ffffff;
+			background-color: #000000;
+		}
+		.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+			color: #ffffff;
+			background-color: #000000;
+		}
+		.navbar-default .navbar-toggle {
+			border-color: #000000;
+		}
+		.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+			background-color: #000000;
+		}
+		.navbar-default .navbar-toggle .icon-bar {
+			background-color: #ffffff;
+		}
+		.navbar-default .navbar-collapse,
+		.navbar-default .navbar-form {
+			border-color: #ffffff;
+		}
+		.navbar-default .navbar-link {
+			color: #ffffff;
+		}
+		.navbar-default .navbar-link:hover {
+			color: #ffffff;
+		}
+		
+		@media (max-width: 767px) {
+			.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+				color: #ffffff;
+			}
+			.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+				color: #ffffff;
+			}
+			.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+				color: #ffffff;
+				background-color: #000000;
+			}
+		}
+		
+.input-group-addon.primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+.input-group-addon.success {
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 184, 92);
+    border-color: rgb(76, 174, 76);
+}
+.input-group-addon.info {
+    color: rgb(255, 255, 255);
+    background-color: rgb(57, 179, 215);
+    border-color: rgb(38, 154, 188);
+}
+.input-group-addon.warning {
+    color: rgb(255, 255, 255);
+    background-color: rgb(240, 173, 78);
+    border-color: rgb(238, 162, 54);
+}
+.input-group-addon.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(217, 83, 79);
+    border-color: rgb(212, 63, 58);
+}
+
+.panel-group {
+     margin-bottom: 2px; 
+}
